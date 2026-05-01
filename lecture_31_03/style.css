@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.container > div {
+    border: 1px solid black;
+    background-color: lightblue;
+}
+
+/* .item1 {
+    grid-row: 1 / span 3;
+} */
+
+.item5 {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 2;
+}
+
+/* .item7 {
+    grid-column: 1 / span 3;
+} */

@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 30px;
+}
+
+.square {
+    width: 400px;
+    height: 400px;
+    border: 1px solid black;
+}
+
+.square2 {
+    width: 50%;
+    height: 50%;
+    background-color: red;
+}
+
+.par {
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+@media (min-width: 480px){
+    .square {
+        width: 480px;
+        height: 480px;
+    }
+
+    .square2 {
+        background-color: yellow;
+    }
+
+    .container {
+        flex-direction: row;
+        gap: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .square2 {
+        background-color: pink;
+    }
+}

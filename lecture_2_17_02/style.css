@@ -1,0 +1,33 @@
+ol {
+    list-style-type: lower-roman;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+li {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue
+}
+
+table {
+    /* border-collapse: collapse; */
+    color: blueviolet;
+    border: 1px dotted blue;
+}
+
+/* td, th {
+    border: 1px dotted blue;
+} */
+
+th {
+    background-color: lightblue;
+}

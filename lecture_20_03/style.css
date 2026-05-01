@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+} */
+
+.container > div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+    /* position: relative; */
+    /* top: 100px;
+    right: 100px; */
+    /* position: absolute; */
+}
+
+.blue {
+    background-color: blue;
+    position: relative;
+}
+
+.blue > span {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.pink {
+    background-color: pink;
+    position: absolute;
+    left: 50px;
+    z-index: -1;
+}
+
+.brown {
+    background-color: brown;
+}

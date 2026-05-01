@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+.elephant {
+    background-image: url("./media/slon3.jpeg");
+    height: 1000px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.circle {
+    background-color: blue;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
