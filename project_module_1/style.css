@@ -113,3 +113,77 @@ h2 {
     width: 753px;
     height: 264px;
 }
+
+
+
+@media (max-width: 1312px) {
+    .wrapper {
+        width: 704px;
+    }
+
+    #achievements > div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 105px);
+        row-gap: 40px;
+    }
+
+    #gallery > div > div {
+        display: grid;
+        grid-template-columns: repeat(2, 340px);
+        grid-template-rows: 380px 362px 425px 225px;
+    }
+
+    #gallery > div > div > img:first-child {
+        width: 704px;
+        height: 380px;
+    }
+
+    #gallery > div > div > img:nth-child(2) {
+        grid-row: 3;
+        grid-column: 1;
+        width: 340px;
+        height: 425px;
+    }
+
+    #gallery > div > div > img:nth-child(3) {
+        grid-row: 3;
+        grid-column: 2;
+        width: 340px;
+        height: 425px;
+    }
+
+    #gallery > div > div > img:nth-child(4) {
+        width: 704px;
+        height: 362px;
+        grid-row: 2;
+        grid-column: 1 / span 2;
+    }
+
+    #gallery > div > div > img:last-child {
+        grid-row: 4;
+        grid-column: 1 / span 2;
+        width: 704px;
+        height: 225px;
+    }
+}
+
+
+@media (max-width: 704px) {
+    .wrapper {
+        width: 320px;
+    }
+
+    #achievements > div {
+        row-gap: 30px;
+        column-gap: 40px;
+    }
+
+    #achievements > div > div > p:first-child {
+        font-size: 40px;
+    }
+    
+    #achievements > div > div > p:last-child {
+        font-size: 16px;
+    }
+}
