@@ -31,6 +31,44 @@ h2 {
     margin: 0 auto;
 }
 
+/* MENU */
+.header {
+    padding: 32.5px;
+}
+
+.header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > div > img:nth-child(2) {
+    display: none;
+}
+
+.header > div > img:last-child {
+    display: none;
+    cursor: pointer;
+}
+
+.header ul {
+    display: flex;
+    list-style: none;
+    gap: 96px;
+    font-size: 20px;
+}
+
+.header ul > li:last-child {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.header a {
+    text-decoration: none;
+    color: black;
+}
+
+
 /* ACHIEVEMENTS */
 #achievements {
     background-color: var(--primary-blue);
@@ -121,6 +159,31 @@ h2 {
         width: 704px;
     }
 
+    .header > div > img:last-child {
+        display: inline;
+    }
+
+    .header nav {
+        display: none;
+        background-color: var(--primary-blue);
+        color: var(--white);
+        padding: 64px 20px;
+
+        position: absolute;
+        top: 116px;
+        left: 0;
+        width: 100%;
+    }
+
+    .header ul {
+        flex-direction: column;
+        font-size: 48px;
+    }
+
+    .header a {
+        color: var(--white);
+    }
+
     #achievements > div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -172,6 +235,23 @@ h2 {
 @media (max-width: 704px) {
     .wrapper {
         width: 320px;
+    }
+
+    .header > div > img:first-child {
+        display: none;
+    }
+
+    .header > div > img:nth-child(2) {
+        display: inline;
+    }
+
+    .header nav {
+        top: 99px;
+    }
+
+    .header ul {
+        font-size: 32px;
+        gap: 64px;
     }
 
     #achievements > div {
