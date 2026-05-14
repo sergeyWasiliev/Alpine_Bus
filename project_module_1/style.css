@@ -18,6 +18,17 @@
 
 body {
     font-family: var(--font-family);
+    background: linear-gradient(
+        to top,
+        #F5F5F5 0%,
+        #DDECFF 50%,
+        #F5F5F5 100%
+    );
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 700;
 }
 
 h2 {
@@ -30,6 +41,96 @@ h2 {
     width: 1312px;
     margin: 0 auto;
 }
+
+/* TICKETS */
+#tickets {
+    padding-top: 64px;
+    padding-bottom: 128px;
+}
+
+#tickets > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+#tickets > div > div {
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+#tickets form > div:first-child {
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 24px;
+    border-radius: 16px;
+}
+
+#tickets form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+#tickets form .counter_block {
+    display: flex;
+    gap: 6px;
+}
+
+#tickets form > div:nth-child(2) input,
+#tickets form > div:nth-child(3) input{
+    padding: 16px 24px;
+    border-radius: 16px;
+    border: none;
+    width: 304px;
+}
+
+#tickets form > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+#tickets form > div:nth-child(2) label {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#tickets form > div:nth-child(3) {
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#tickets form > div:nth-child(3) > div {
+    display: flex;
+    gap: 32px;
+}
+
+#tickets form > button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 16px 0;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#tickets > div > img {
+    width: 640px;
+    height: 704px;
+    object-fit: contain;
+    transform: scaleX(-1);
+}
+
 
 /* MENU */
 .header {
@@ -326,6 +427,14 @@ details .answer {
 
     .header a {
         color: var(--white);
+    }
+
+    #tickets > div {
+        justify-content: center;
+    }
+
+    #tickets > div > img {
+        display: none;
     }
 
     #achievements > div {
