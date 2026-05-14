@@ -68,6 +68,28 @@ h2 {
     color: black;
 }
 
+/* TICKETS */
+#tickets {
+    padding-top: 64px;
+    padding-bottom: 128px;
+}
+
+#tickets > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+#tickets > div > div {
+    width: 640px;
+}
+
+#tickets > div > img {
+    width: 640px;
+    height: 704px;
+    object-fit: contain;
+    transform: scale(-1);
+}
 
 /* ACHIEVEMENTS */
 #achievements {
@@ -181,6 +203,101 @@ h3 {
     font-weight: 700;
 }
 
+/* FAQ */
+#faqs {
+    padding: 128px 177px;
+    display: flex;
+    justify-content: center; /* горизонтальное центрирование */
+    align-items: center; /* вертикальное центрирование */
+}
+
+/* Контейнер аккордеона — центрированный */
+.wrapper_faqs {
+    display: flex;
+    flex-direction: column;
+    width: 1086px;
+    /*max-width: 100%; !* чтобы на маленьких экранах не вылезал *!*/
+}
+
+.wrapper_faqs h2 {
+    font-weight: 700;
+    font-size: 64px;
+    color: var(--primary-black);
+    text-align: left; /* заголовок по центру */
+    margin-bottom: 40px; /* отступ до аккордеона */
+    padding-bottom: 0;
+}
+
+/* Убираем стандартный маркер у details */
+details {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+details summary {
+    list-style: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500; /* Medium */
+    font-size: 18px;
+    padding: 8px 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-black);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Добавляем иконку "+" */
+details summary::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+    color: var(--primary-black);
+}
+
+/* Меняем иконку при открытом состоянии (крестик) */
+details[open] summary::after {
+    content: "✕";
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+/* Стили для ответа */
+.answer p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 16px;
+    color: var(--primary-black);
+    line-height: 1.5;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    margin: 0;
+}
+
+/* Плавная анимация открытия */
+details .answer {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*END FAQ*/
+
 @media (max-width: 1312px) {
     .wrapper {
         width: 704px;
@@ -256,6 +373,11 @@ h3 {
         width: 704px;
         height: 225px;
     }
+
+    #faqs {
+        padding: 128px 32px;
+    }
+
 }
 
 
@@ -289,8 +411,12 @@ h3 {
     #achievements > div > div > p:first-child {
         font-size: 40px;
     }
-    
+
     #achievements > div > div > p:last-child {
         font-size: 16px;
+    }
+
+    #faqs {
+        padding: 64px 20px;
     }
 }
