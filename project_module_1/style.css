@@ -19,10 +19,10 @@
 body {
     font-family: var(--font-family);
     background: linear-gradient(
-        to top,
-        #F5F5F5 0%,
-        #DDECFF 50%,
-        #F5F5F5 100%
+            to top,
+            #F5F5F5 0%,
+            #DDECFF 50%,
+            #F5F5F5 100%
     );
 }
 
@@ -82,7 +82,7 @@ h2 {
 }
 
 #tickets form > div:nth-child(2) input,
-#tickets form > div:nth-child(3) input{
+#tickets form > div:nth-child(3) input {
     padding: 16px 24px;
     border-radius: 16px;
     border: none;
@@ -189,14 +189,14 @@ h2 {
     width: 640px;
     height: 704px;
     object-fit: contain;
-    transform: scale(-1);
+    /*transform: scale(-1);*/
 }
 
 /* ACHIEVEMENTS */
 #achievements {
     background-color: var(--primary-blue);
     color: var(--white);
-    padding: 59.5px 0;
+    padding: 60px 0;
 }
 
 #achievements > div {
@@ -282,15 +282,16 @@ h2 {
     padding: 130px 0;
 }
 
-#apps .wrapper_apps {
-    width: 1312px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+h3 {
+    color: var(--primary-black);
+    font-size: 62px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 48px;
 }
 
-#apps .wrapper_apps > div {
+/* Базовые стили для кнопок */
+.apps_buttons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -298,10 +299,9 @@ h2 {
     flex-wrap: wrap;
 }
 
-h3 {
-    color: var(--primary-black);
-    font-size: 62px;
-    font-weight: 700;
+.buttons_bottom {
+    display: flex;
+    gap: 148px;
 }
 
 /* FAQ */
@@ -399,11 +399,58 @@ details .answer {
 
 /*END FAQ*/
 
+/* CONTACTS */
+#contacts {
+    background-color: var(--primary-blue);
+    color: var(--primary-black);
+    padding: 50px 0;
+    margin-top: 150px;
+}
+
+h4 {
+    font-size: 64px;
+}
+
+#contacts > div > div {
+    width: 640px;
+    height: 397px;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    border: 1px solid var(--primary-black);
+}
+
+.phone_email {
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 140%;
+    padding: 20px 0px;
+}
+
+.address {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+}
+
+.contact-content {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -45%);
+
+}
+
 @media (max-width: 1312px) {
     .wrapper {
         width: 704px;
     }
 
+    /* header */
     .header > div > img:last-child {
         display: inline;
     }
@@ -429,6 +476,7 @@ details .answer {
         color: var(--white);
     }
 
+    /* tickets */
     #tickets > div {
         justify-content: center;
     }
@@ -437,6 +485,7 @@ details .answer {
         display: none;
     }
 
+    /* achievements */
     #achievements > div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -444,6 +493,7 @@ details .answer {
         row-gap: 40px;
     }
 
+    /* gallery */
     #gallery > div > div {
         display: grid;
         grid-template-columns: repeat(2, 340px);
@@ -483,8 +533,36 @@ details .answer {
         height: 225px;
     }
 
+    /* apps */
+    #apps {
+        padding: 80px 0;
+    }
+
+    h3 {
+        font-size: 40px;
+        margin-bottom: 32px;
+    }
+
+    .apps_buttons {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .buttons_bottom {
+        justify-content: center;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+
+    /* faqs */
     #faqs {
         padding: 128px 32px;
+    }
+
+    /*contacts*/
+    #contacts > div > div {
+        width: 464px;
     }
 
 }
@@ -495,6 +573,7 @@ details .answer {
         width: 320px;
     }
 
+    /* header */
     .header > div > img:first-child {
         display: none;
     }
@@ -512,6 +591,131 @@ details .answer {
         gap: 64px;
     }
 
+    /* tickets */
+    #tickets > div {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    /* Текстовый блок */
+    #tickets > div > div {
+        width: 100%;
+    }
+
+    #tickets h1 {
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    #tickets > div > div > p {
+        font-size: 11px;
+    }
+
+
+    #tickets form {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    /* Каждый крупный блок формы — колонка */
+    #tickets form > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    /* ПЕРВЫЙ БЛОК (радиокнопки + счётчик) — СТРОКА */
+    #tickets form > div:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 24px;
+    }
+
+    /* Радиокнопки */
+    #tickets form > div:first-child label {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    /* Счётчик — строка */
+    .counter_block {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* Кнопки внутри счётчика */
+    .counter_block > div {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
+
+    /* Кнопки -/+ */
+    .counter_block span {
+        display: inline-flex;
+        font-size: 12px;
+    }
+
+    /* ВТОРОЙ БЛОК (Departure / Arrival) — КОЛОНКА */
+    #tickets form > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #tickets form > div:nth-child(2) label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+    }
+
+    /* ТРЕТИЙ БЛОК (Pick your lucky day + даты) — КОЛОНКА */
+    #tickets form > div:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #tickets form > div:nth-child(3) p {
+        margin: 0;
+        font-weight: 500;
+    }
+
+    #tickets form > div:nth-child(3) > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    /* ВСЕ ИНПУТЫ — НА ВСЮ ШИРИНУ */
+    #tickets input,
+    #tickets input[type="text"] {
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 12px 16px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    #tickets input[type="radio"] {
+        width: auto !important;
+    }
+
+    /*achievements*/
     #achievements > div {
         row-gap: 30px;
         column-gap: 40px;
@@ -525,7 +729,77 @@ details .answer {
         font-size: 16px;
     }
 
+    /*gallery*/
+    #gallery {
+        padding: 60px 20px 60px 20px;
+
+    }
+
+    #gallery h2 {
+        font-size: 32px;
+    }
+
+    #gallery > div > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Перебиваем ВСЕ фиксированные ширины */
+    #gallery > div > div > img,
+    #gallery > div > div > img:first-child,
+    #gallery > div > div > img:nth-child(2),
+    #gallery > div > div > img:nth-child(3),
+    #gallery > div > div > img:nth-child(4),
+    #gallery > div > div > img:last-child {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* Меняем порядок: 1, 4, 2, 3, 5 */
+    #gallery > div > div > img:first-child {
+        order: 1;
+    }
+
+    #gallery > div > div > img:nth-child(4) {
+        order: 2;
+    }
+
+    #gallery > div > div > img:nth-child(2) {
+        order: 3;
+    }
+
+    #gallery > div > div > img:nth-child(3) {
+        order: 4;
+    }
+
+    #gallery > div > div > img:last-child {
+        order: 5;
+    }
+
+
+    /* apps */
+    h3 {
+        font-size: 32px;
+    }
+
+    /*faqs*/
     #faqs {
         padding: 64px 20px;
     }
+
+    /*contacts*/
+    #contacts > div > div {
+        width: 320px;
+        height: 341px;
+    }
+
+    h4 {
+        font-size: 36px;
+    }
+
+    .phone_email {
+        font-size: 20px;
+    }
+
 }
