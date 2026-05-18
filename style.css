@@ -403,7 +403,7 @@ details .answer {
 #contacts {
     background-color: var(--primary-blue);
     color: var(--primary-black);
-    padding: 50px 0;
+    padding-top: 50px;
     margin-top: 150px;
 }
 
@@ -444,6 +444,92 @@ h4 {
     transform: translate(-50%, -45%);
 
 }
+
+/* ========== FOOTER ========== */
+
+.footer {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    height: auto;
+    padding: 64px 64px 64px 64px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+
+}
+
+/* логотип + колонки */
+.footer_top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    /*padding: 64px;*/
+}
+
+/* Логотип */
+.footer_logo {
+    width: 640px;
+}
+
+.footer_logo_img {
+    width: 295px;
+}
+
+/* Контейнер с тремя колонками — занимает всё оставшееся место */
+.footer_columns {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1; /* занимает оставшееся пространство */
+    gap: 40px;
+    justify-content: space-between;
+}
+
+/* Каждая колонка — равная ширина */
+.footer_col {
+    flex: 1; /* три колонки одинаковой ширины */
+}
+
+.footer_col h3 {
+    color: var(--white);
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    text-align: left;
+}
+
+.footer_nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer_nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+}
+
+.footer_nav a:hover {
+    color: var(--good-yellow);
+}
+
+/* копирайт */
+.footer_bottom {
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+.footer_copyright_mobile {
+    display: none;
+}
+
 
 @media (max-width: 1312px) {
     .wrapper {
@@ -563,6 +649,12 @@ h4 {
     /*contacts*/
     #contacts > div > div {
         width: 464px;
+    }
+
+    /*footer*/
+    .footer {
+        height: auto;
+        padding: 24px 32px 64px 32px;
     }
 
 }
@@ -800,6 +892,46 @@ h4 {
 
     .phone_email {
         font-size: 20px;
+    }
+
+    /*footer*/
+    .footer {
+        height: auto;
+        padding: 24px 20px 64px 20px;
+    }
+
+    .footer_copyright_desktop p {
+        display: none;
+    }
+
+    .footer_copyright_mobile {
+        display: block;
+    }
+
+    /* Родитель колонок — flex, разрешаем перенос */
+    .footer_columns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        width: 100%;
+    }
+
+    /* первая и вторая колонки — в одну строку */
+    .footer_columns .footer_col:nth-child(1),
+    .footer_columns .footer_col:nth-child(2) {
+        flex: 1;                    /* растягиваются поровну */
+        min-width: 0;               /* убираем минимальную ширину */
+        width: auto;
+    }
+
+    /* Третья колонка — на новой строке, на всю ширину */
+    .footer_columns .footer_col:nth-child(3) {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .footer_copyright_mobile{
+        letter-spacing: -0.02em;
     }
 
 }
