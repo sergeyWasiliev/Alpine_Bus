@@ -340,6 +340,7 @@ details summary {
     font-family: 'Poppins', sans-serif;
     font-weight: 500; /* Medium */
     font-size: 18px;
+    line-height: 120%;
     padding: 8px 0;
     margin: 0;
     display: flex;
@@ -374,6 +375,7 @@ details[open] summary::after {
     font-family: 'Poppins', sans-serif;
     font-weight: 400; /* Regular */
     font-size: 16px;
+    line-height: 140%;
     color: var(--primary-black);
     line-height: 1.5;
     padding-bottom: 12px;
