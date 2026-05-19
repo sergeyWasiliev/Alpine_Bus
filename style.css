@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     padding: 0;
@@ -134,7 +134,7 @@ h2 {
 
 /* MENU */
 .header {
-    padding: 32.5px;
+    padding: 32px;
 }
 
 .header > div {
@@ -169,6 +169,9 @@ h2 {
     color: black;
 }
 
+/* END MENU */
+
+
 /* TICKETS */
 #tickets {
     padding-top: 64px;
@@ -191,6 +194,9 @@ h2 {
     object-fit: contain;
     /*transform: scale(-1);*/
 }
+
+/* END TICKETS */
+
 
 /* ACHIEVEMENTS */
 #achievements {
@@ -218,6 +224,8 @@ h2 {
     font-size: 20px;
     font-weight: 500;
 }
+
+/* END ACHIEVEMENTS */
 
 
 /* GALLERY */
@@ -275,8 +283,10 @@ h2 {
     height: 264px;
 }
 
-/* APPs */
+/* END GALLERY */
 
+
+/* APPs */
 #apps {
     background-color: var(--good-yellow);
     padding: 130px 0;
@@ -304,12 +314,15 @@ h3 {
     gap: 148px;
 }
 
+/* END APPs */
+
+
 /* FAQ */
 #faqs {
     padding: 128px 177px;
     display: flex;
-    justify-content: center; /* горизонтальное центрирование */
-    align-items: center; /* вертикальное центрирование */
+    justify-content: center;
+    align-items: center;
 }
 
 /* Контейнер аккордеона — центрированный */
@@ -317,14 +330,13 @@ h3 {
     display: flex;
     flex-direction: column;
     width: 1086px;
-    /*max-width: 100%; !* чтобы на маленьких экранах не вылезал *!*/
 }
 
 .wrapper_faqs h2 {
     font-weight: 700;
     font-size: 64px;
     color: var(--primary-black);
-    text-align: left; /* заголовок по центру */
+    text-align: left;
     margin-bottom: 40px; /* отступ до аккордеона */
     padding-bottom: 0;
 }
@@ -377,7 +389,6 @@ details[open] summary::after {
     font-size: 16px;
     line-height: 140%;
     color: var(--primary-black);
-    line-height: 1.5;
     padding-bottom: 12px;
     padding-top: 12px;
     margin: 0;
@@ -400,6 +411,7 @@ details .answer {
 }
 
 /*END FAQ*/
+
 
 /* CONTACTS */
 #contacts {
@@ -431,7 +443,7 @@ h4 {
     font-weight: 400;
     font-size: 28px;
     line-height: 140%;
-    padding: 20px 0px;
+    padding: 20px 0;
 }
 
 .address {
@@ -447,8 +459,10 @@ h4 {
 
 }
 
-/* ========== FOOTER ========== */
+/* CONTACTS */
 
+
+/* ========== FOOTER ========== */
 .footer {
     background-color: var(--primary-blue);
     color: var(--white);
@@ -477,7 +491,7 @@ h4 {
     width: 295px;
 }
 
-/* Контейнер с тремя колонками — занимает всё оставшееся место */
+/* Контейнер с тремя колонками */
 .footer_columns {
     display: flex;
     flex-wrap: wrap;
@@ -486,13 +500,14 @@ h4 {
     justify-content: space-between;
 }
 
-/* Каждая колонка — равная ширина */
+/* Каждая колонка одинаковой ширины */
 .footer_col {
-    flex: 1; /* три колонки одинаковой ширины */
+    flex: 1;
 }
 
 .footer_col h3 {
     color: var(--white);
+    font-family: "Poppins", sans-serif;
     font-size: 20px;
     line-height: 150%;
     letter-spacing: -0.02em;
@@ -513,6 +528,7 @@ h4 {
     color: var(--white);
     text-decoration: none;
     font-size: 16px;
+    font-weight: 400;
     line-height: 150%;
     letter-spacing: -0.02em;
     transition: color 0.3s ease;
@@ -532,7 +548,10 @@ h4 {
     display: none;
 }
 
+/* ========== END FOOTER ========== */
 
+
+/* ========== ПЛАНШЕТ ========== */
 @media (max-width: 1312px) {
     .wrapper {
         width: 704px;
@@ -662,6 +681,7 @@ h4 {
 }
 
 
+/* ========== МОБИЛКА ========== */
 @media (max-width: 704px) {
     .wrapper {
         width: 320px;
@@ -704,7 +724,6 @@ h4 {
     #tickets > div > div > p {
         font-size: 11px;
     }
-
 
     #tickets form {
         display: flex;
@@ -826,7 +845,6 @@ h4 {
     /*gallery*/
     #gallery {
         padding: 60px 20px 60px 20px;
-
     }
 
     #gallery h2 {
@@ -871,10 +889,13 @@ h4 {
         order: 5;
     }
 
-
     /* apps */
     h3 {
         font-size: 32px;
+    }
+
+    #apps > div > div > div {
+        gap: 30px;
     }
 
     /*faqs*/
@@ -902,6 +923,10 @@ h4 {
         padding: 24px 20px 64px 20px;
     }
 
+    /*.footer_nav{*/
+    /*    width: 120px;*/
+    /*}*/
+
     .footer_copyright_desktop p {
         display: none;
     }
@@ -910,7 +935,6 @@ h4 {
         display: block;
     }
 
-    /* Родитель колонок — flex, разрешаем перенос */
     .footer_columns {
         display: flex;
         flex-wrap: wrap;
@@ -921,8 +945,8 @@ h4 {
     /* первая и вторая колонки — в одну строку */
     .footer_columns .footer_col:nth-child(1),
     .footer_columns .footer_col:nth-child(2) {
-        flex: 1;                    /* растягиваются поровну */
-        min-width: 0;               /* убираем минимальную ширину */
+        flex: 1;
+        min-width: 0;
         width: auto;
     }
 
@@ -932,7 +956,7 @@ h4 {
         width: 100%;
     }
 
-    .footer_copyright_mobile{
+    .footer_copyright_mobile {
         letter-spacing: -0.02em;
     }
 
