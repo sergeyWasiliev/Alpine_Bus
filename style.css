@@ -43,6 +43,7 @@ h2 {
 }
 
 /* TICKETS */
+
 #tickets {
     padding-top: 64px;
     padding-bottom: 128px;
@@ -128,8 +129,12 @@ h2 {
     width: 640px;
     height: 704px;
     object-fit: contain;
-    transform: scaleX(-1);
+    /*transform: scale(-1);*/
 }
+
+/* END TICKETS */
+
+
 
 
 /* MENU */
@@ -170,32 +175,6 @@ h2 {
 }
 
 /* END MENU */
-
-
-/* TICKETS */
-#tickets {
-    padding-top: 64px;
-    padding-bottom: 128px;
-}
-
-#tickets > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-}
-
-#tickets > div > div {
-    width: 640px;
-}
-
-#tickets > div > img {
-    width: 640px;
-    height: 704px;
-    object-fit: contain;
-    /*transform: scale(-1);*/
-}
-
-/* END TICKETS */
 
 
 /* ACHIEVEMENTS */
