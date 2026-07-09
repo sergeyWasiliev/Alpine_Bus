@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpine Bus — Mountain Travel</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
             </ul>
         </nav>
 
-        <img src="./media/menu.png" alt="menu_icon">
+        <img src="./media/menu.png" alt="menu_icon" class="menu_icon">
     </div>
 </header>
 
@@ -47,9 +48,9 @@
                         <div class="counter_block">
                             <img src="./media/person_icon.png" alt="person_icon">
                             <div>
-                                <span>-</span>
-                                <span>1</span>
-                                <span>+</span>
+                                <span id="counter_minus">-</span>
+                                <span id="counter_value"></span>
+                                <span id="counter_plus">+</span>
                             </div>
                         </div>
                     </div>
@@ -69,8 +70,8 @@
                     <div>
                         <p>Pick your lucky day</p>
                         <div>
-                            <input type="text">
-                            <input type="text">
+                            <input id="departure" type="text" placeholder="Depart">
+                            <input id="returnDate" type="text" placeholder="Return">
                         </div>
                     </div>
 
@@ -286,6 +287,7 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="./script.js"></script>
 </body>
 </html>
