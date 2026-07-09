@@ -34,6 +34,91 @@ counterPlus.addEventListener('click', () => {
 })
 
 
+// -----FAQ----
+
+// Функция для загрузки FAQ из JSON
+async function loadFaqData() {
+    try {
+        const response = await fetch('faq_data.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Ошибка загрузки FAQ:', error);
+        // Возвращаем fallback данные в случае ошибки
+        return getFallbackData();
+    }
+}
+
+// Fallback данные (если файл не загрузился)
+function getFallbackData() {
+    return [
+        {
+            question: "Alpine Bus Journeys?",
+            answer: "Forget crowded cities! Alpine Bus Journeys are your comfy seat with panoramic windows to breathtaking mountain vistas, charming villages, and air so fresh it might make you yodel (please don't, unless you're outside)."
+        },
+        {
+            question: "What about seating options?",
+            answer: "Generally, you'll find comfy standard seats (great views, great value, maybe great new friends) and perhaps slightly better seats with extra legroom."
+        }
+    ];
+}
+
+// Функция для рендеринга FAQ
+function renderFaqs(faqs) {
+    const container = document.getElementById('faq-container');
+
+    // Очищаем контейнер
+    container.innerHTML = '';
+
+    faqs.forEach((faq, index) => {
+        // Создаём элементы
+        const details = document.createElement('details');
+        details.name = 'faq';
+
+        // Если нужно открыть первый по умолчанию
+        // if (index === 0) details.open = true;
+
+        const summary = document.createElement('summary');
+        summary.textContent = faq.question;
+
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'answer';
+
+        const paragraph = document.createElement('p');
+        paragraph.textContent = faq.answer;
+
+        // Собираем структуру
+        answerDiv.append(paragraph);
+        details.append(summary);
+        details.append(answerDiv);
+
+        container.append(details);
+    });
+}
+
+// Инициализация
+async function initFaq() {
+    // Показываем состояние загрузки
+    const container = document.getElementById('faq-container');
+    container.innerHTML = '<p style="text-align: center; padding: 20px;">Загрузка FAQ...</p>';
+
+    // Загружаем данные
+    const faqs = await loadFaqData();
+
+    // Рендерим
+    renderFaqs(faqs);
+}
+
+// Запускаем при загрузке страницы
+document.addEventListener('DOMContentLoaded', initFaq);
+
+
+
+
+
 // // DATE PICKER
 // const isMobile = window.innerWidth <= 704;
 //
