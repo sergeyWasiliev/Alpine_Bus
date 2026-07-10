@@ -19,7 +19,7 @@ let value = 1;
 counterValue.innerText = value;
 
 counterMinus.addEventListener('click', () => {
-    if(value > 1){
+    if (value > 1) {
         --value;
         console.log(value);
         counterValue.innerText = value;
@@ -27,16 +27,15 @@ counterMinus.addEventListener('click', () => {
 })
 
 counterPlus.addEventListener('click', () => {
-    if(value < 12){
+    if (value < 12) {
         ++value;
-        counterValue.innerText = value;
+        counterValue.innerText = +value;
     }
 })
 
-
 // -----FAQ----
 
-// Функция для загрузки FAQ из JSON
+// Загрузка FAQ из JSON
 async function loadFaqData() {
     try {
         const response = await fetch('faq_data.json');
@@ -66,15 +65,13 @@ function getFallbackData() {
     ];
 }
 
-// Функция для рендеринга FAQ
 function renderFaqs(faqs) {
     const container = document.getElementById('faq-container');
 
-    // Очищаем контейнер
     container.innerHTML = '';
 
     faqs.forEach((faq, index) => {
-        // Создаём элементы
+
         const details = document.createElement('details');
         details.name = 'faq';
 
@@ -90,33 +87,39 @@ function renderFaqs(faqs) {
         const paragraph = document.createElement('p');
         paragraph.textContent = faq.answer;
 
-        // Собираем структуру
         answerDiv.append(paragraph);
         details.append(summary);
         details.append(answerDiv);
 
         container.append(details);
     });
+
+    // Логика: при открытии одного — закрываем все остальные
+    const allDetails = container.querySelectorAll('details');
+    allDetails.forEach(detail => {
+        detail.addEventListener('toggle', function() {
+            if (this.open) {
+                allDetails.forEach(other => {
+                    if (other !== this && other.open) {
+                        other.open = false;
+                    }
+                });
+            }
+        });
+    });
+
 }
 
 // Инициализация
 async function initFaq() {
-    // Показываем состояние загрузки
-    const container = document.getElementById('faq-container');
-    container.innerHTML = '<p style="text-align: center; padding: 20px;">Загрузка FAQ...</p>';
 
-    // Загружаем данные
     const faqs = await loadFaqData();
-
-    // Рендерим
     renderFaqs(faqs);
 }
 
-// Запускаем при загрузке страницы
 document.addEventListener('DOMContentLoaded', initFaq);
 
-
-
+// -----END FAQ----
 
 
 // // DATE PICKER
@@ -238,9 +241,9 @@ initPicker();
 
 // Адаптация при ресайзе
 let resizeTimer;
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
+    resizeTimer = setTimeout(function () {
         const currentIsMobile = window.innerWidth <= 704;
         const currentShowMonths = picker.config.showMonths;
         const expectedShowMonths = currentIsMobile ? 1 : 2;
