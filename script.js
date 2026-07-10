@@ -15,23 +15,59 @@ menuIcon.addEventListener('click', () => {
 
 
 // СЧЕТЧИК
-let value = 1;
-counterValue.innerText = value;
+let cntValue = 1;
+counterValue.innerText = cntValue;
 
 counterMinus.addEventListener('click', () => {
-    if (value > 1) {
-        --value;
-        console.log(value);
-        counterValue.innerText = value;
+    if (cntValue > 1) {
+        --cntValue;
+        console.log(cntValue);
+        counterValue.innerText = cntValue;
     }
 })
 
 counterPlus.addEventListener('click', () => {
-    if (value < 12) {
-        ++value;
-        counterValue.innerText = +value;
+    if (cntValue < 12) {
+        ++cntValue;
+        counterValue.innerText = +cntValue;
     }
-})
+});
+
+
+// ФОРМА
+const ticketsForm = document.querySelector('#tickets form');
+
+ticketsForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    let formData = new FormData(ticketsForm);
+    const data = {
+        ...Object.fromEntries(formData),
+        people_cnt: cntValue
+    }
+    // 1. Вывод в консоль
+    console.log('Данные формы:', data);
+    console.log('Отправка данных на тестовый сервер...');
+
+    try {
+        // 2. Реальная отправка на тестовый сервер JSONPlaceholder
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        console.log('Ответ сервера:', result);
+        console.log('Данные успешно отправлены! (ID записи:', result.id, ')');
+
+    } catch (error) {
+        console.error('Ошибка при отправке:', error);
+    }
+});
+
+
 
 // -----FAQ----
 
@@ -119,79 +155,11 @@ async function initFaq() {
 
 document.addEventListener('DOMContentLoaded', initFaq);
 
-// -----END FAQ----
+// --------------------END FAQ-------------------
 
 
-// // DATE PICKER
-// const isMobile = window.innerWidth <= 704;
-//
-// const picker = flatpickr(departureInput, {
-//     mode: "range",
-//     showMonths: isMobile ? 1 : 2,  // на мобилке 1 месяц, на десктопе 2
-//     static: true,
-//     locale: "ru",
-//     dateFormat: "d.m.Y",
-//     closeOnSelect: false,   // не закрываем сразу — закрытие по кнопке Apply
-//     minDate: "today",
-//
-//     onOpen: function () {
-//         departureInput.classList.add('active');
-//         returnInput.classList.add('active');
-//     },
-//     onClose: function () {
-//         departureInput.classList.remove('active');
-//         returnInput.classList.remove('active');
-//     },
-//
-//     // Главное: при любом изменении выбора — раскладываем даты по двум полям
-//     onChange: function (selectedDates, dateStr, instance) {
-//         departureInput.value = selectedDates[0]
-//             ? instance.formatDate(selectedDates[0], "d.m.Y")
-//             : "";
-//         returnInput.value = selectedDates[1]
-//             ? instance.formatDate(selectedDates[1], "d.m.Y")
-//             : "";
-//     },
-//
-//     onReady: function (selectedDates, dateStr, instance) {
-//         addFooter(instance);
-//     }
-// });
-//
-// // Клик по "Return" открывает тот же календарь, что и "Departure"
-// returnInput.addEventListener("click", () => picker.open());
-//
-// function addFooter(instance) {
-//     const footer = document.createElement("div");
-//     footer.className = "fp-footer";
-//
-//     const resetBtn = document.createElement("button");
-//     resetBtn.type = "button";
-//     resetBtn.className = "fp-reset";
-//     resetBtn.textContent = "Reset";
-//     resetBtn.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         instance.clear();
-//         departureInput.value = "";
-//         returnInput.value = "";
-//     });
-//
-//     const applyBtn = document.createElement("button");
-//     applyBtn.type = "button";
-//     applyBtn.className = "fp-apply";
-//     applyBtn.textContent = "Apply";
-//     applyBtn.addEventListener("click", (e) => {
-//         e.preventDefault();
-//         instance.close();
-//     });
-//
-//     footer.appendChild(resetBtn);
-//     footer.appendChild(applyBtn);
-//     instance.calendarContainer.appendChild(footer);
-// }
+// -------------DATE PICKER---------------------
 
-
-// DATE PICKER
 let picker;
 
 function initPicker() {
