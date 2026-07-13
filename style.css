@@ -548,6 +548,7 @@ h4 {
         top: 116px;
         left: 0;
         width: 100%;
+        z-index: 100000;
     }
 
     .header .menu_active {
