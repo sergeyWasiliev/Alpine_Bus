@@ -268,5 +268,3 @@ function addFooter(instance) {
     footer.appendChild(applyBtn);
     instance.calendarContainer.appendChild(footer);
 }
-
-
